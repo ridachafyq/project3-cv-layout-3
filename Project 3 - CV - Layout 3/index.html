@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Elegant CV – Scroll-Snap + Donut Skills (No JS)</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <!-- ================================ HERO (always visible; not snapped) ================================ -->
+  <header class="hero" aria-label="Intro">
+    <div class="hero-inner">
+      <div class="avatar" role="img" aria-label="Profile photo">
+        <!-- 🔁 Replace with your actual image file -->
+        <img src="images/MyImage.jpg" alt="Your Name portrait" loading="lazy" />
+      </div>
+
+      <div class="title">
+        <h1>YOUR NAME</h1>
+        <p class="muted">Front-End Developer • UI Engineer • Design Systems</p>
+
+        <!-- 📍 Mobile-friendly inline nav jumps to the snapped sections -->
+        <nav class="hero-nav" aria-label="Sections">
+          <a class="pill" href="#about">About</a>
+          <a class="pill" href="#skills">Skills</a>
+          <a class="pill" href="#experience">Experience</a>
+          <a class="pill" href="#projects">Projects</a>
+          <a class="pill" href="#education">Education</a>
+        </nav>
+      </div>
+    </div>
+  </header>
+
+  <!-- ================================ SCROLL-SNAP CONTAINER ================================ -->
+  <main class="snap" aria-label="Scrollable resume">
+    <!--
+      🔗 Each section has an ID so anchor links can target it.
+      ⭐ The side dot nav sits AFTER these sections so the CSS
+         “#section:target ~ .dotnav a[href='#section']” can highlight the right dot.
+    -->
+
+    <!-- ▸ ABOUT -->
+    <section id="about" class="section">
+      <article class="card" aria-labelledby="about-title">
+        <h2 id="about-title">About</h2>
+        <p class="lead">
+          Impact-driven builder of fast, accessible UIs. I care about
+          design tokens, clean semantics, and performance budgets.
+        </p>
+        <ul class="clean">
+          <li><strong>Location:</strong> Amman, Jordan</li>
+          <li><strong>Languages:</strong> Arabic (Native), English (Professional)</li>
+          <li><strong>Contact:</strong> you@example.com • github.com/your-username</li>
+        </ul>
+      </article>
+    </section>
+
+    <!-- ▸ SKILLS (donut meters use --val for percentage) -->
+    <section id="skills" class="section">
+      <article class="card" aria-labelledby="skills-title">
+        <h2 id="skills-title">Skills</h2>
+        <p class="muted">
+          CSS donuts below are pure CSS (<code>conic-gradient</code>). Set values with <code>--val</code>.
+        </p>
+
+        <div class="skills" role="list">
+          
+          <div role="listitem" class="skill">
+            <div class="donut" style="--val: 80"><span>80%</span></div>
+            <p><strong>Sql</strong><br><span class="muted">structure Query Languages</span></p>
+          </div>
+
+          <div role="listitem" class="skill">
+            <div class="donut" style="--val: 92"><span>92%</span></div>
+            <p><strong>Semantic HTML</strong><br><span class="muted">Landmarks, a11y, structure</span></p>
+          </div>
+
+        
+          <div role="listitem" class="skill">
+            <div class="donut" style="--val: 88"><span>88%</span></div>
+            <p><strong>Modern CSS</strong><br><span class="muted">Grid, Flex, custom props</span></p>
+          </div>
+
+          <div role="listitem" class="skill">
+            <div class="donut" style="--val: 76"><span>76%</span></div>
+            <p><strong>Accessibility</strong><br><span class="muted">WCAG, keyboard, color</span></p>
+          </div>
+
+          <div role="listitem" class="skill">
+            <div class="donut" style="--val: 80"><span>80%</span></div>
+            <p><strong>Tooling</strong><br><span class="muted">Git, GitHub, DevTools</span></p>
+          </div>
+        </div>
+      </article>
+    </section>
+
+    <!-- ▸ EXPERIENCE (native accordion) -->
+    <section id="experience" class="section">
+      <article class="card" aria-labelledby="exp-title">
+        <h2 id="exp-title">Experience</h2>
+
+        <!-- details/summary are keyboard & screen-reader friendly by default -->
+        <details>
+          <summary>
+            Senior Front-End Developer <span class="when">• Tech Co • 2023—Present</span>
+          </summary>
+          <ul class="clean muted">
+            <li>Owned component library; cut CSS by 30% via design tokens.</li>
+            <li>Shipped a11y improvements to WCAG 2.1 AA with audits and docs.</li>
+          </ul>
+        </details>
+
+          <details>
+          <summary>
+            Senior Back-End Developer <span class="when">• Tech Co • 2026—Present</span>
+          </summary>
+          <ul class="clean muted">
+            <li>Owned component library; cut CSS by 30% via design tokens.</li>
+            <li>Shipped a11y improvements to WCAG 2.1 AA with audits and docs.</li>
+          </ul>
+        </details>
+        <details>
+          <summary>
+            Web Designer <span class="when">• Creative Studio • 2020—2023</span>
+          </summary>
+          <ul class="clean muted">
+            <li>Prototyped 12 marketing sites; established shared styles.</li>
+            <li>Delivered semantic handoffs; boosted dev velocity.</li>
+          </ul>
+        </details>
+      </article>
+    </section>
+
+    <!-- ▸ PROJECTS (glass cards + hover lift) -->
+    <section id="projects" class="section">
+      <article class="card" aria-labelledby="proj-title">
+        <h2 id="proj-title">Selected Projects</h2>
+
+        <div class="projects">
+          <a class="proj" href="#" aria-label="Portfolio Website">
+            <h3>Portfolio Website</h3>
+            <p class="muted">Static site, Lighthouse 95+, optimized images & fonts.</p>
+          </a>
+
+          <a class="proj" href="#" aria-label="Design System Demo">
+            <h3>Design System Demo</h3>
+            <p class="muted">Token-based theming; documented components.</p>
+          </a>
+
+          <a class="proj" href="#" aria-label="Perf Budgets Kit">
+            <h3>Perf Budgets Kit</h3>
+            <p class="muted">Starter budgets and checklists to keep sites fast.</p>
+          </a>
+        </div>
+      </article>
+    </section>
+
+    <!-- ▸ EDUCATION -->
+    <section id="education" class="section">
+      <article class="card" aria-labelledby="edu-title">
+        <h2 id="edu-title">Education</h2>
+        <p>
+          <strong>B.Sc. in Computer Science</strong><br/>
+          University Name • 2016—2020
+        </p>
+        <ul class="clean muted">
+          <li>Graduated with Honors</li>
+          <li>Key courses: HCI, Data Structures, Databases</li>
+        </ul>
+      </article>
+    </section>
+
+    <!-- 🧭 The sticky dot nav must be a sibling AFTER the sections
+         so the :target ~ .dotnav highlighting selectors can match. -->
+    <nav class="dotnav" aria-label="Quick section nav">
+      <a href="#about" title="About"></a>
+      <a href="#skills" title="Skills"></a>
+      <a href="#experience" title="Experience"></a>
+      <a href="#projects" title="Projects"></a>
+      <a href="#education" title="Education"></a>
+    </nav>
+  </main>
+</body>
+</html>
