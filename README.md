@@ -1,6 +1,6 @@
 # Project 3 — CV Layout 3
 
-A **CSS-only interactive CV** to practice modern UI patterns and accessibility.
+ modern and interactive CV built using **HTML & CSS only**. This project focuses on advanced layout techniques, clean UI design, and accessibility without using JavaScript.
 
 ## Features
 
